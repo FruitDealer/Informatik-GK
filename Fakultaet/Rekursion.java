@@ -55,7 +55,7 @@ public class Rekursion extends JFrame {
     });
     cp.add(fibonaccilButton);
     fakultaetButton.setBounds(184, 112, 161, 33);
-    fakultaetButton.setLabel("Fakultät");
+    fakultaetButton.setLabel("Fakultaet");
     fakultaetButton.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
         fakultaetButton_ActionPerformed(evt);
@@ -87,11 +87,11 @@ public class Rekursion extends JFrame {
   }
   
   public BigInteger fib(BigInteger n) {
-   return n.compareTo(BigInteger.ONE)!=1 ? BigInteger.ONE : n.multiply(fakultaet(n.subtract(BigInteger.ONE)));
+   return n.compareTo(BigInteger.ONE)==0 ? BigInteger.ZERO : n.subtract(BigInteger.ONE).add(fib(n.subtract(BigInteger.ONE)));
   }
   
   public BigInteger fakultaet(BigInteger n) {
-   return n.compareTo(BigInteger.ONE)==0 ? BigInteger.ZERO : n.subtract(BigInteger.ONE).add(fib(n.subtract(BigInteger.ONE)));
+   return n.compareTo(BigInteger.ONE)!=1 ? BigInteger.ONE : n.multiply(fakultaet(n.subtract(BigInteger.ONE)));
   }
 
   public void button1_ActionPerformed(ActionEvent evt) {
